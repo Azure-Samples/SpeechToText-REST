@@ -109,8 +109,8 @@ namespace SpeechSample
                 return;
             }
 
-            // Note: Sign up at http://www.projectoxford.ai to get a subscription key.  Search for Speech APIs from Azure Marketplace.  
-            // Use the subscription key as Client secret below.
+            // Note: Sign up at https://azure.microsoft.com/en-us/try/cognitive-services/ to get a subscription key.  
+            // Navigate to the Speech tab and select Bing Speech API. Use the subscription key as Client secret below.
             Authentication auth = new Authentication("your subscription key");
 
             string requestUri = args[0];/*.Trim(new char[] { '/', '?' });*/
