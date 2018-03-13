@@ -23,12 +23,15 @@ if [ -z $token ] ; then
   echo "Request to issue an auth token failed." && exit 1;
 fi
 
-request_url="https://speech.platform.bing.com/speech/recognition/$recognition_mode"
-request_url+="/cognitiveservices/v1?language=$language&locale=$locale"
-request_url+="&format=$output_format&requestid=rest_sample_request_id"
+request_url="https://speech.platform.bing.com/synthesize"
 
-curl -X POST $request_url -H "Transfer-Encoding: chunked" \
-        -H "Content-type: audio/wav; codec=\"audio/pcm\"; samplerate=16000" \
-        -H "Authorization: Bearer $token" --data-binary @$filename
+curl -X POST $request_url\
+	-H "Content-type: application/ssml+xml"\
+	-H "X-Microsoft-OutputFormat: riff-8khz-8bit-mono-mulaw"\
+	-H "X-Search-AppID: 07D3234E49CE426DAA29772419F436CA"\
+	-H "X-Search-ClientID: 1ECFAE91408841A480F00935DC390960"\
+	-H "User-Agent: SpeechToText-REST"\
+	-H "Authorization: Bearer $token"\
+	--data-binary @$filename
 
 echo ""
