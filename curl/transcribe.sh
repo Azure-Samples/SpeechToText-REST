@@ -28,8 +28,8 @@ request_url="https://speech.platform.bing.com/synthesize"
 curl -X POST $request_url\
 	-H "Content-type: application/ssml+xml"\
 	-H "X-Microsoft-OutputFormat: riff-8khz-8bit-mono-mulaw"\
-	-H "X-Search-AppID: 07D3234E49CE426DAA29772419F436CA"\
-	-H "X-Search-ClientID: 1ECFAE91408841A480F00935DC390960"\
+	-H "X-Search-AppID: 1FAB0C18BF26467BA26E16EC30F568D2"\
+	-H "X-Search-ClientID: 30290D544C9C4FF2AF4D391DAE3417B6"\
 	-H "User-Agent: SpeechToText-REST"\
 	-H "Authorization: Bearer $token"\
 	--data-binary @$filename
