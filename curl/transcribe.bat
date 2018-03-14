@@ -21,8 +21,10 @@ if [%token%]==[] (
   exit /B 1
 )
 
-curl -X POST "https://speech.platform.bing.com/speech/recognition/%recognition_mode%/cognitiveservices/v1?language=%language%&locale=%locale%&format=%output_format%&requestid=rest_sample_request_id" ^
- -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=\"audio/pcm\";" -H "Authorization: Bearer %token%" ^
+curl -X POST "https://speech.platform.bing.com/synthesize" ^
+ -H "Content-type: application/ssml+xml" -H "X-Microsoft-OutputFormat: riff-8khz-8bit-mono-mulaw" ^
+ -H "X-Search-AppID: 1FAB0C18BF26467BA26E16EC30F568D2" -H "X-Search-ClientID: 30290D544C9C4FF2AF4D391DAE3417B6" ^ 
+ -H "User-Agent: SpeechToText-REST" -H "Authorization: Bearer %token%" ^
  --data-binary @%filename%
 
 endlocal
